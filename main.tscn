@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://rugtn18gqghj"]
+
+[ext_resource type="Script" uid="uid://c5j80d2t3voy4" path="res://src/scripts/main.gd" id="1_0xm2m"]
+[ext_resource type="FontFile" uid="uid://ba4wb48gr6auk" path="res://src/assets/fonts/GochiHand-Regular.ttf" id="1_ig7tw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7dm0k"]
+font = ExtResource("1_ig7tw")
+font_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
+font = ExtResource("1_ig7tw")
+font_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+
+[sub_resource type="Animation" id="Animation_ig7tw"]
+resource_name = "init"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("curtain:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667, 2.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0142752, 0.0142752, 0.0142752, 1), Color(0.0156863, 0.0156863, 0.0156863, 0.00392157)]
+}
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("curtain:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0142752, 0.0142752, 0.0142752, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
+_data = {
+&"RESET": SubResource("Animation_0xm2m"),
+&"init": SubResource("Animation_ig7tw")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 289.0
+offset_bottom = 209.0
+
+[node name="Tittle" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 22.0
+offset_right = 262.0
+offset_bottom = 47.0
+text = "Proyecto para la diplomatura"
+label_settings = SubResource("LabelSettings_7dm0k")
+vertical_alignment = 3
+
+[node name="SubTittle" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 53.0
+offset_right = 259.0
+offset_bottom = 76.0
+text = "en desarrollo de Videojuegos"
+label_settings = SubResource("LabelSettings_ig7tw")
+
+[node name="curtain" type="ColorRect" parent="."]
+visible = false
+offset_right = 292.0
+offset_bottom = 213.0
+color = Color(0.0142752, 0.0142752, 0.0142752, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h2yge")
+}
