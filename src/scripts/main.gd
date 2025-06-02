@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	#Reproduzco la animacion para pasar de pantalla negra a transparente
 	$AnimationPlayer.play("init")
+	$UI/AnimatedSprite2D.play("idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,15 +1,79 @@
-[gd_scene load_steps=8 format=3 uid="uid://rugtn18gqghj"]
+[gd_scene load_steps=19 format=3 uid="uid://rugtn18gqghj"]
 
 [ext_resource type="Script" uid="uid://c5j80d2t3voy4" path="res://src/scripts/main.gd" id="1_0xm2m"]
-[ext_resource type="FontFile" uid="uid://ba4wb48gr6auk" path="res://src/assets/fonts/GochiHand-Regular.ttf" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b65d15bbjkqtu" path="res://src/scenes/sky.tscn" id="2_1bvp3"]
+[ext_resource type="FontFile" uid="uid://f2bm6o8mf0s8" path="res://src/assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ba5upnelr8e0t" path="res://src/assets/sprite/play button.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://ux2sfmabk2ta" path="res://src/assets/sprite/ranita idle.png" id="5_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7dm0k"]
-font = ExtResource("1_ig7tw")
+font = ExtResource("3_1bvp3")
 font_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
-font = ExtResource("1_ig7tw")
+font = ExtResource("3_1bvp3")
 font_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
+font = ExtResource("3_1bvp3")
+font_size = 20
+font_color = Color(0.980392, 0.988235, 0.490196, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lquwl"]
+texture = ExtResource("3_h2yge")
+region_rect = Rect2(0, 38.6628, 31.6149, 17.735)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2yge"]
+texture = ExtResource("3_h2yge")
+region_rect = Rect2(0, 39.5, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bvp3"]
+texture = ExtResource("3_h2yge")
+region_rect = Rect2(0, 5.5, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kek77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("curtain:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0142752, 0.0142752, 0.0142752, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ig7tw"]
 resource_name = "init"
@@ -27,21 +91,6 @@ tracks/0/keys = {
 "values": [Color(0.0142752, 0.0142752, 0.0142752, 1), Color(0.0156863, 0.0156863, 0.0156863, 0.00392157)]
 }
 
-[sub_resource type="Animation" id="Animation_0xm2m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("curtain:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.0142752, 0.0142752, 0.0142752, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
 _data = {
 &"RESET": SubResource("Animation_0xm2m"),
@@ -51,31 +100,56 @@ _data = {
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 289.0
-offset_bottom = 209.0
+[node name="UI" type="Node2D" parent="."]
 
-[node name="Tittle" type="Label" parent="."]
-offset_left = 32.0
+[node name="Sky" parent="UI" instance=ExtResource("2_1bvp3")]
+
+[node name="Tittle" type="Label" parent="UI"]
+offset_left = 41.0
 offset_top = 22.0
-offset_right = 262.0
+offset_right = 271.0
 offset_bottom = 47.0
 text = "Proyecto para la diplomatura"
 label_settings = SubResource("LabelSettings_7dm0k")
 vertical_alignment = 3
 
-[node name="SubTittle" type="Label" parent="."]
-offset_left = 35.0
+[node name="SubTittle" type="Label" parent="UI"]
+offset_left = 43.0
 offset_top = 53.0
-offset_right = 259.0
+offset_right = 267.0
 offset_bottom = 76.0
 text = "en desarrollo de Videojuegos"
 label_settings = SubResource("LabelSettings_ig7tw")
 
+[node name="Name" type="Label" parent="UI"]
+offset_left = 69.0
+offset_top = 81.0
+offset_right = 217.0
+offset_bottom = 106.0
+text = "ELIAS ESCALANTE"
+label_settings = SubResource("LabelSettings_h2yge")
+
+[node name="Star" type="Button" parent="UI"]
+offset_left = 98.0
+offset_top = 151.0
+offset_right = 194.0
+offset_bottom = 187.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_lquwl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h2yge")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1bvp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI"]
+position = Vector2(149, 133)
+scale = Vector2(3.0625, 2.9375)
+sprite_frames = SubResource("SpriteFrames_kek77")
+animation = &"idle"
+frame_progress = 0.926846
+speed_scale = 0.5
+
 [node name="curtain" type="ColorRect" parent="."]
-visible = false
 offset_right = 292.0
 offset_bottom = 213.0
+mouse_filter = 2
 color = Color(0.0142752, 0.0142752, 0.0142752, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
