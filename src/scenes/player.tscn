@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c3uixxrl8lian" path="res://src/assets/sprite/ranita jump damage.png" id="4_8v6aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pcbe"]
+size = Vector2(16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvyn7"]
 atlas = ExtResource("1_l2v1k")
@@ -105,6 +106,7 @@ animations = [{
 script = ExtResource("1_ya6j6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4pcbe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

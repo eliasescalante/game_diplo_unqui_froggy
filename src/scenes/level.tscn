@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce5sij6lm2r7f"]
+[gd_scene load_steps=9 format=3 uid="uid://ce5sij6lm2r7f"]
 
 [ext_resource type="PackedScene" uid="uid://b0suyyie04d4i" path="res://src/scenes/map.tscn" id="1_50nvp"]
 [ext_resource type="PackedScene" uid="uid://dypd81f8xlyin" path="res://src/scenes/hud.tscn" id="2_7racn"]
 [ext_resource type="PackedScene" uid="uid://bmu50aavx75qu" path="res://src/scenes/player.tscn" id="3_w1iog"]
 [ext_resource type="PackedScene" uid="uid://bsy8px6embjoq" path="res://src/scenes/house.tscn" id="4_ikp8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikp8s"]
+size = Vector2(306, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jxoh"]
+size = Vector2(13, 229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7qev"]
+size = Vector2(14, 230.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e32pt"]
+size = Vector2(306, 16)
 
 [node name="Level" type="Node2D"]
 
@@ -15,8 +27,27 @@
 
 [node name="Hud" parent="Ui" instance=ExtResource("2_7racn")]
 
+[node name="Limits" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="LimitUp" type="CollisionShape2D" parent="Limits"]
+position = Vector2(143, 5)
+shape = SubResource("RectangleShape2D_ikp8s")
+
+[node name="LimitRight" type="CollisionShape2D" parent="Limits"]
+position = Vector2(294.5, 114.5)
+shape = SubResource("RectangleShape2D_5jxoh")
+
+[node name="LimitLeft" type="CollisionShape2D" parent="Limits"]
+position = Vector2(-6, 115.75)
+shape = SubResource("RectangleShape2D_n7qev")
+
+[node name="LimitDown" type="CollisionShape2D" parent="Limits"]
+position = Vector2(145, 223)
+shape = SubResource("RectangleShape2D_e32pt")
+
 [node name="Player" parent="." instance=ExtResource("3_w1iog")]
 position = Vector2(8, 200)
 
 [node name="House" parent="." instance=ExtResource("4_ikp8s")]
-position = Vector2(264, 200)
+position = Vector2(280, 24)

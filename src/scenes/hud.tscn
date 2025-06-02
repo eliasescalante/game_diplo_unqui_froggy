@@ -10,16 +10,16 @@ font = ExtResource("1_byxfp")
 
 [node name="background" type="ColorRect" parent="."]
 offset_right = 289.0
-offset_bottom = 30.0
+offset_bottom = 17.0
 color = Color(1, 1, 0.333333, 0.388235)
 
-[node name="titulo" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 5.0
-offset_right = 62.0
-offset_bottom = 28.0
+[node name="Tittle" type="Label" parent="."]
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 59.0
+offset_bottom = 22.0
 text = "Ranita"
 label_settings = SubResource("LabelSettings_u5uw0")
 
 [node name="Item" parent="." instance=ExtResource("2_u5uw0")]
-position = Vector2(74, 16)
+position = Vector2(72, 9)
