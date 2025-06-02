@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://bsy8px6embjoq"]
+[gd_scene load_steps=6 format=3 uid="uid://bsy8px6embjoq"]
+
+[ext_resource type="Texture2D" uid="uid://3ylf3r0vvbg2" path="res://src/assets/sprite/house.png" id="1_jwoi1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa8i7"]
+atlas = ExtResource("1_jwoi1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns8oh"]
+atlas = ExtResource("1_jwoi1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlfvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa8i7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns8oh")
+}],
+"loop": true,
+"name": &"ocuped",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5m60"]
 
 [node name="House" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dlfvv")
+animation = &"ocuped"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_n5m60")

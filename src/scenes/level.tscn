@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce5sij6lm2r7f"]
+[gd_scene load_steps=5 format=3 uid="uid://ce5sij6lm2r7f"]
 
 [ext_resource type="PackedScene" uid="uid://b0suyyie04d4i" path="res://src/scenes/map.tscn" id="1_50nvp"]
 [ext_resource type="PackedScene" uid="uid://dypd81f8xlyin" path="res://src/scenes/hud.tscn" id="2_7racn"]
+[ext_resource type="PackedScene" uid="uid://bmu50aavx75qu" path="res://src/scenes/player.tscn" id="3_w1iog"]
+[ext_resource type="PackedScene" uid="uid://bsy8px6embjoq" path="res://src/scenes/house.tscn" id="4_ikp8s"]
 
 [node name="Level" type="Node2D"]
 
@@ -12,3 +14,9 @@
 [node name="Ui" type="Node2D" parent="."]
 
 [node name="Hud" parent="Ui" instance=ExtResource("2_7racn")]
+
+[node name="Player" parent="." instance=ExtResource("3_w1iog")]
+position = Vector2(8, 200)
+
+[node name="House" parent="." instance=ExtResource("4_ikp8s")]
+position = Vector2(264, 200)
