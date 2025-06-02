@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://dypd81f8xlyin"]
+[gd_scene load_steps=4 format=3 uid="uid://dypd81f8xlyin"]
 
-[node name="Level1" type="Node2D"]
+[ext_resource type="FontFile" uid="uid://f2bm6o8mf0s8" path="res://src/assets/fonts/PixelifySans-VariableFont_wght.ttf" id="1_byxfp"]
+[ext_resource type="PackedScene" uid="uid://blhxfhu4ls8cx" path="res://src/scenes/item.tscn" id="2_u5uw0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5uw0"]
+font = ExtResource("1_byxfp")
+
+[node name="Hud" type="Node2D"]
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 289.0
+offset_bottom = 30.0
+color = Color(1, 1, 0.333333, 0.388235)
+
+[node name="titulo" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 62.0
+offset_bottom = 28.0
+text = "Ranita"
+label_settings = SubResource("LabelSettings_u5uw0")
+
+[node name="Item" parent="." instance=ExtResource("2_u5uw0")]
+position = Vector2(74, 16)

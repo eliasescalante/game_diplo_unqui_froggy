@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce5sij6lm2r7f"]
+
+[ext_resource type="PackedScene" uid="uid://b0suyyie04d4i" path="res://src/scenes/map.tscn" id="1_50nvp"]
+[ext_resource type="PackedScene" uid="uid://dypd81f8xlyin" path="res://src/scenes/hud.tscn" id="2_7racn"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Map" parent="Background" instance=ExtResource("1_50nvp")]
+
+[node name="Ui" type="Node2D" parent="."]
+
+[node name="Hud" parent="Ui" instance=ExtResource("2_7racn")]

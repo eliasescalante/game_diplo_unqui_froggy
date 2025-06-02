@@ -129,7 +129,7 @@ offset_bottom = 106.0
 text = "ELIAS ESCALANTE"
 label_settings = SubResource("LabelSettings_h2yge")
 
-[node name="Star" type="Button" parent="UI"]
+[node name="Play" type="Button" parent="UI"]
 offset_left = 98.0
 offset_top = 151.0
 offset_right = 194.0
@@ -143,7 +143,7 @@ position = Vector2(149, 133)
 scale = Vector2(3.0625, 2.9375)
 sprite_frames = SubResource("SpriteFrames_kek77")
 animation = &"idle"
-frame_progress = 0.926846
+frame_progress = 0.476216
 speed_scale = 0.5
 
 [node name="curtain" type="ColorRect" parent="."]
@@ -156,3 +156,5 @@ color = Color(0.0142752, 0.0142752, 0.0142752, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_h2yge")
 }
+
+[connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]
