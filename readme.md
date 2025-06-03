@@ -30,3 +30,4 @@ Este proyecto fue desarrollado como parte de la **Diplomatura en Desarrollo de V
 - ![Texto alternativo](https://github.com/eliasescalante/game_diplo_unqui_froggy/blob/main/src/assets/capturas/intro_cap.png)
 - ![Texto alternativo](https://github.com/eliasescalante/game_diplo_unqui_froggy/blob/main/src/assets/capturas/level_cap.png)
 
+### Para probar el juego en itch.io -> https://elias-escalante.itch.io/frogy-version-alternativa-de-frogger
