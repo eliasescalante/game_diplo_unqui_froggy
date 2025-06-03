@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce5sij6lm2r7f"]
+[gd_scene load_steps=11 format=3 uid="uid://ce5sij6lm2r7f"]
 
+[ext_resource type="Script" uid="uid://ce3bgdg10rjj5" path="res://src/scripts/level.gd" id="1_5jxoh"]
 [ext_resource type="PackedScene" uid="uid://b0suyyie04d4i" path="res://src/scenes/map.tscn" id="1_50nvp"]
 [ext_resource type="PackedScene" uid="uid://dypd81f8xlyin" path="res://src/scenes/hud.tscn" id="2_7racn"]
 [ext_resource type="PackedScene" uid="uid://bmu50aavx75qu" path="res://src/scenes/player.tscn" id="3_w1iog"]
 [ext_resource type="PackedScene" uid="uid://bsy8px6embjoq" path="res://src/scenes/house.tscn" id="4_ikp8s"]
+[ext_resource type="PackedScene" uid="uid://ddhp5e2cc0njp" path="res://src/scenes/enemy.tscn" id="4_n7qev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikp8s"]
 size = Vector2(306, 10)
@@ -18,6 +20,7 @@ size = Vector2(14, 230.5)
 size = Vector2(306, 16)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_5jxoh")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -45,6 +48,73 @@ shape = SubResource("RectangleShape2D_n7qev")
 [node name="LimitDown" type="CollisionShape2D" parent="Limits"]
 position = Vector2(145, 223)
 shape = SubResource("RectangleShape2D_e32pt")
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(40, -8)
+loop_height = 208.0
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(89, 216)
+speed = 50.0
+direction = -1
+loop_height = 208.0
+
+[node name="Enemy3" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(120, -5)
+speed = 200.0
+loop_height = 208.0
+
+[node name="Enemy4" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(154, 214)
+speed = 150.0
+direction = -1
+loop_height = 208.0
+
+[node name="Enemy5" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(154, -6)
+speed = 50.0
+loop_height = 208.0
+
+[node name="Enemy6" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(184, -6)
+speed = 30.0
+loop_height = 208.0
+
+[node name="Enemy7" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(192, 214)
+speed = 80.0
+direction = -1
+loop_height = 208.0
+
+[node name="Enemy8" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(219, -7)
+speed = 200.0
+loop_height = 208.0
+
+[node name="Enemy9" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(219, 215)
+speed = 150.0
+direction = -1
+loop_height = 208.0
+
+[node name="Enemy10" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(249, -5)
+speed = 200.0
+loop_height = 208.0
+
+[node name="Enemy11" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(251, 214)
+speed = 200.0
+direction = -1
+loop_height = 208.0
+
+[node name="Enemy12" parent="Enemy" instance=ExtResource("4_n7qev")]
+position = Vector2(252, 215)
+speed = 50.0
+direction = -1
+loop_height = 208.0
 
 [node name="Player" parent="." instance=ExtResource("3_w1iog")]
 position = Vector2(8, 200)

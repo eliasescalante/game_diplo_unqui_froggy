@@ -1,7 +1,5 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Reproduzco las animaciones para pasar de pantalla negra a transparente
 	# y para reproducir la animacion de la ranita

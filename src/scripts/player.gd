@@ -4,9 +4,12 @@ extends CharacterBody2D
 @onready var anim := $AnimatedSprite2D  # Referencia a la animación
 
 func _physics_process(delta: float) -> void:
-	handle_input()       # Detecta entrada del jugador
-	move_character()     # Mueve al jugador con colisiones
-	update_animation()   # Cambia la animación según movimiento
+	# Detecta entrada del jugador
+	handle_input()
+	# Mueve al jugador con colisiones      
+	move_character()  
+	# Cambia la animación según movimiento   
+	update_animation()   
 
 # Lee el input del jugador y actualiza la velocidad
 func handle_input() -> void:
@@ -26,3 +29,11 @@ func update_animation() -> void:
 		anim.play("jump")
 	else:
 		anim.play("idle")
+
+var lives := 2  # Dos vidas = dos corazones
+
+func take_damage():
+	lives -= 1
+	get_parent().get_node("Ui/Hud").update_hearts(lives)
+	if lives <= 0:
+		get_tree().change_scene_to_file("res://src/scenes/lose.tscn")
