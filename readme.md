@@ -27,6 +27,6 @@ Este proyecto fue desarrollado como parte de la **Diplomatura en Desarrollo de V
 ###  Link al repo : https://github.com/eliasescalante/game_diplo_unqui_froggy.git
 ###  Capturas del juego:
 
-- ![Texto alternativo]()
-- ![Texto alternativo]()
+- ![Texto alternativo](https://github.com/eliasescalante/game_diplo_unqui_froggy/blob/main/src/assets/capturas/intro_cap.png)
+- ![Texto alternativo](https://github.com/eliasescalante/game_diplo_unqui_froggy/blob/main/src/assets/capturas/level_cap.png)
 
