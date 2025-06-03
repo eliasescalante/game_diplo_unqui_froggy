@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce5sij6lm2r7f"]
+[gd_scene load_steps=10 format=3 uid="uid://ce5sij6lm2r7f"]
 
-[ext_resource type="Script" uid="uid://ce3bgdg10rjj5" path="res://src/scripts/level.gd" id="1_5jxoh"]
 [ext_resource type="PackedScene" uid="uid://b0suyyie04d4i" path="res://src/scenes/map.tscn" id="1_50nvp"]
 [ext_resource type="PackedScene" uid="uid://dypd81f8xlyin" path="res://src/scenes/hud.tscn" id="2_7racn"]
 [ext_resource type="PackedScene" uid="uid://bmu50aavx75qu" path="res://src/scenes/player.tscn" id="3_w1iog"]
@@ -20,7 +19,6 @@ size = Vector2(14, 230.5)
 size = Vector2(306, 16)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_5jxoh")
 
 [node name="Background" type="Node2D" parent="."]
 

@@ -147,7 +147,6 @@ frame_progress = 0.476216
 speed_scale = 0.5
 
 [node name="curtain" type="ColorRect" parent="."]
-visible = false
 offset_right = 290.0
 offset_bottom = 210.0
 mouse_filter = 2

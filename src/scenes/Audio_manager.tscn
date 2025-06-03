@@ -5,12 +5,14 @@
 
 [node name="AudioManager" type="Node2D"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_vu2qu")
-volume_db = -7.581
-autoplay = true
-
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="golpe" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_dilx0")
+
+[node name="Fondo" type="Node2D" parent="."]
+
+[node name="Tema" type="AudioStreamPlayer" parent="Fondo"]
+stream = ExtResource("1_vu2qu")
+volume_db = -7.581
+autoplay = true

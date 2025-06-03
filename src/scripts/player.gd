@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
-@export var SPEED = 100.0  # Velocidad del jugador
-@onready var anim := $AnimatedSprite2D  # Referencia a la animación
-@export var lives := 2  # Dos vidas = dos corazones
+# Velocidad del jugador
+@export var SPEED = 100.0
+# Referencia a la animación
+@onready var anim := $AnimatedSprite2D
+#vidas  
+var lives := 2
+#guardo posicion original inicial
 var start_position: Vector2
 
 
 func _ready():
+	#guardo la posicion inicial
 	start_position = position
 
 func _physics_process(delta: float) -> void:
-	# Detecta entrada del jugador
+	# Detecta los comandos del jugador
 	handle_input()
 	# Mueve al jugador con colisiones      
 	move_character()  
@@ -30,6 +35,7 @@ func move_character() -> void:
 	move_and_slide()
 
 # Reproduce animación según si se está moviendo
+# y cambia la animacion si esta dañado o no
 func update_animation() -> void:
 	if velocity.length() > 0 && lives == 2:
 		anim.play("jump")
@@ -40,7 +46,8 @@ func update_animation() -> void:
 	elif velocity.length() < 0 && lives <=1 :
 		anim.play("idle_damage")
 
-
+#genera el daño si choca con el enemigo
+#reproduce el sonido de golpe y actualiza la vida
 func take_damage() -> void:
 	AudioManager.get_node("SFX/golpe").play()
 	lives -= 1
@@ -49,7 +56,7 @@ func take_damage() -> void:
 	hud.update_hearts(lives)
 
 	if lives == 1:
-		# Reiniciar posición
+		# reinicia la posición
 		position = start_position
 	else:
 		GameStateManager.lose()
