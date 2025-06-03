@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_u5uw0"]
 font = ExtResource("1_byxfp")
 
-[node name="Hud" type="Node2D"]
+[node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_3i2um")
 
 [node name="background" type="ColorRect" parent="."]
