@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ljfwxiwn4d2s"]
+
+[ext_resource type="AudioStream" uid="uid://c5wpekbrtxhyu" path="res://src/assets/audio/Jeremy Blake - Powerup!.mp3" id="1_vu2qu"]
+[ext_resource type="AudioStream" uid="uid://dgj6srrfe563p" path="res://src/assets/audio/SONIDO GOLPE 2.mp3" id="2_dilx0"]
+
+[node name="AudioManager" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_vu2qu")
+volume_db = -7.581
+autoplay = true
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="golpe" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_dilx0")

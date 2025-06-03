@@ -42,6 +42,7 @@ func update_animation() -> void:
 
 
 func take_damage() -> void:
+	AudioManager.get_node("SFX/golpe").play()
 	lives -= 1
 	print("Player tocado, vidas restantes:", lives)
 	var hud = get_parent().get_node("Ui/Hud")

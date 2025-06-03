@@ -1,3 +1,102 @@
-[gd_scene format=3 uid="uid://em6k2ur51mlh"]
+[gd_scene load_steps=16 format=3 uid="uid://em6k2ur51mlh"]
+
+[ext_resource type="Script" uid="uid://hn0lh2nx14p4" path="res://src/scripts/lose.gd" id="1_gkqjn"]
+[ext_resource type="FontFile" uid="uid://f2bm6o8mf0s8" path="res://src/assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_607pc"]
+[ext_resource type="Texture2D" uid="uid://cqv7nr8ugwo8i" path="res://src/assets/sprite/enemy.png" id="3_s4xcj"]
+[ext_resource type="Texture2D" uid="uid://buc3wnha6aubv" path="res://src/assets/sprite/buton_again.png" id="4_s4xcj"]
+[ext_resource type="Texture2D" uid="uid://b2ph04uq0bjlp" path="res://src/assets/sprite/button_quit.png" id="5_xkc0v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xkc0v"]
+font = ExtResource("2_607pc")
+font_size = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mr8"]
+atlas = ExtResource("3_s4xcj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qedtn"]
+atlas = ExtResource("3_s4xcj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kn1sn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qedtn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kn1sn"]
+texture = ExtResource("4_s4xcj")
+region_rect = Rect2(0, 41.1241, 32, 13.6142)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6p8ng"]
+texture = ExtResource("4_s4xcj")
+region_rect = Rect2(0, 9.84037, 32, 12.7452)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hbulc"]
+texture = ExtResource("4_s4xcj")
+region_rect = Rect2(0, 9.85583, 32, 13.0349)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_utujl"]
+texture = ExtResource("5_xkc0v")
+region_rect = Rect2(0, 41.7034, 32, 13.3246)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjv74"]
+texture = ExtResource("5_xkc0v")
+region_rect = Rect2(0, 41.1241, 32, 13.3246)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tg0pg"]
+texture = ExtResource("5_xkc0v")
+region_rect = Rect2(0, 8.97138, 32, 13.3246)
 
 [node name="Lose" type="Node2D"]
+script = ExtResource("1_gkqjn")
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="UI"]
+offset_right = 288.0
+offset_bottom = 208.0
+color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[node name="Tittle" type="Label" parent="UI"]
+offset_left = 34.0
+offset_top = 15.0
+offset_right = 243.0
+offset_bottom = 75.0
+text = "You Lose"
+label_settings = SubResource("LabelSettings_xkc0v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI"]
+position = Vector2(139, 115.5)
+scale = Vector2(3, 3.9375)
+sprite_frames = SubResource("SpriteFrames_kn1sn")
+animation = &"idle"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 161.0
+offset_right = 111.0
+offset_bottom = 198.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_kn1sn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6p8ng")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbulc")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 169.0
+offset_top = 160.0
+offset_right = 251.0
+offset_bottom = 197.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_utujl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jjv74")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tg0pg")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

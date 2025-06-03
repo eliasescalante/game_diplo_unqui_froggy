@@ -67,7 +67,7 @@ speed = 200.0
 loop_height = 208.0
 
 [node name="Enemy4" parent="Enemy" instance=ExtResource("4_n7qev")]
-position = Vector2(152, 214)
+position = Vector2(152, 217)
 speed = 150.0
 direction = -1
 loop_height = 208.0
@@ -83,7 +83,7 @@ speed = 30.0
 loop_height = 208.0
 
 [node name="Enemy7" parent="Enemy" instance=ExtResource("4_n7qev")]
-position = Vector2(186, 214)
+position = Vector2(186, 216)
 speed = 80.0
 direction = -1
 loop_height = 208.0
@@ -94,7 +94,7 @@ speed = 200.0
 loop_height = 208.0
 
 [node name="Enemy9" parent="Enemy" instance=ExtResource("4_n7qev")]
-position = Vector2(215, 215)
+position = Vector2(215, 217)
 speed = 150.0
 direction = -1
 loop_height = 208.0
@@ -120,4 +120,4 @@ loop_height = 208.0
 position = Vector2(280, 24)
 
 [node name="Player" parent="." instance=ExtResource("3_w1iog")]
-position = Vector2(280, 153)
+position = Vector2(9, 199)

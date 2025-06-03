@@ -1,3 +1,152 @@
-[gd_scene format=3 uid="uid://dwintsmw4i0gc"]
+[gd_scene load_steps=22 format=3 uid="uid://dwintsmw4i0gc"]
+
+[ext_resource type="Script" uid="uid://d2klhpqpnfjmd" path="res://src/scripts/win.gd" id="1_0xlw4"]
+[ext_resource type="FontFile" uid="uid://f2bm6o8mf0s8" path="res://src/assets/fonts/PixelifySans-VariableFont_wght.ttf" id="1_7fyc2"]
+[ext_resource type="Texture2D" uid="uid://ux2sfmabk2ta" path="res://src/assets/sprite/ranita idle.png" id="2_oue7h"]
+[ext_resource type="Texture2D" uid="uid://cqv7nr8ugwo8i" path="res://src/assets/sprite/enemy.png" id="4_c42fb"]
+[ext_resource type="Texture2D" uid="uid://buc3wnha6aubv" path="res://src/assets/sprite/buton_again.png" id="5_72ahu"]
+[ext_resource type="Texture2D" uid="uid://b2ph04uq0bjlp" path="res://src/assets/sprite/button_quit.png" id="6_3xq7a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oue7h"]
+font = ExtResource("1_7fyc2")
+font_size = 50
+font_color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xlw4"]
+font = ExtResource("1_7fyc2")
+font_color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("2_oue7h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("2_oue7h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("2_oue7h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm3t7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mr8"]
+atlas = ExtResource("4_c42fb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qedtn"]
+atlas = ExtResource("4_c42fb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_72ahu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qedtn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_183yp"]
+texture = ExtResource("5_72ahu")
+region_rect = Rect2(0, 41.1241, 32, 13.6142)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpcd6"]
+texture = ExtResource("5_72ahu")
+region_rect = Rect2(0, 9.84037, 32, 12.7452)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qnb45"]
+texture = ExtResource("5_72ahu")
+region_rect = Rect2(0, 9.85583, 32, 13.0349)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p7tfl"]
+texture = ExtResource("6_3xq7a")
+region_rect = Rect2(0, 41.7034, 32, 13.3246)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bim7k"]
+texture = ExtResource("6_3xq7a")
+region_rect = Rect2(0, 41.1241, 32, 13.3246)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7s7ya"]
+texture = ExtResource("6_3xq7a")
+region_rect = Rect2(0, 8.97138, 32, 13.3246)
 
 [node name="Win" type="Node2D"]
+script = ExtResource("1_0xlw4")
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="UI"]
+offset_right = 287.0
+offset_bottom = 208.0
+color = Color(0.613141, 0.860405, 0.925115, 1)
+
+[node name="Tittle" type="Label" parent="UI"]
+offset_left = 37.0
+offset_top = 12.0
+offset_right = 266.0
+offset_bottom = 72.0
+text = "YOU WIN!!!!"
+label_settings = SubResource("LabelSettings_oue7h")
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 79.0
+offset_top = 135.0
+offset_right = 221.0
+offset_bottom = 158.0
+text = "Gracias por jugar"
+label_settings = SubResource("LabelSettings_0xlw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(114, 102)
+scale = Vector2(3.57812, 3.85938)
+sprite_frames = SubResource("SpriteFrames_fm3t7")
+animation = &"idle"
+speed_scale = 0.5
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(187, 104)
+scale = Vector2(3.5, 5.25)
+sprite_frames = SubResource("SpriteFrames_72ahu")
+animation = &"idle"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 161.0
+offset_right = 111.0
+offset_bottom = 198.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_183yp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gpcd6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qnb45")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 169.0
+offset_top = 160.0
+offset_right = 251.0
+offset_bottom = 197.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_p7tfl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bim7k")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7s7ya")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
