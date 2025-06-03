@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsy8px6embjoq"]
+[gd_scene load_steps=7 format=3 uid="uid://bsy8px6embjoq"]
 
 [ext_resource type="Texture2D" uid="uid://3ylf3r0vvbg2" path="res://src/assets/sprite/house.png" id="1_jwoi1"]
+[ext_resource type="Script" uid="uid://drbnste65u5fp" path="res://src/scripts/house.gd" id="1_qa8i7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qa8i7"]
 atlas = ExtResource("1_jwoi1")
@@ -33,6 +34,7 @@ animations = [{
 size = Vector2(15, 15)
 
 [node name="House" type="Node2D"]
+script = ExtResource("1_qa8i7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dlfvv")
@@ -43,3 +45,5 @@ animation = &"ocuped"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_n5m60")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -2,6 +2,12 @@ extends CharacterBody2D
 
 @export var SPEED = 100.0  # Velocidad del jugador
 @onready var anim := $AnimatedSprite2D  # Referencia a la animación
+@export var lives := 2  # Dos vidas = dos corazones
+var start_position: Vector2
+
+
+func _ready():
+	start_position = position
 
 func _physics_process(delta: float) -> void:
 	# Detecta entrada del jugador
@@ -25,15 +31,24 @@ func move_character() -> void:
 
 # Reproduce animación según si se está moviendo
 func update_animation() -> void:
-	if velocity.length() > 0:
+	if velocity.length() > 0 && lives == 2:
 		anim.play("jump")
-	else:
+	elif velocity.length() < 0 && lives == 2:
 		anim.play("idle")
+	elif velocity.length() > 0 && lives <=1 :
+		anim.play("jump_damage")
+	elif velocity.length() < 0 && lives <=1 :
+		anim.play("idle_damage")
 
-var lives := 2  # Dos vidas = dos corazones
 
-func take_damage():
+func take_damage() -> void:
 	lives -= 1
-	get_parent().get_node("Ui/Hud").update_hearts(lives)
-	if lives <= 0:
-		get_tree().change_scene_to_file("res://src/scenes/lose.tscn")
+	print("Player tocado, vidas restantes:", lives)
+	var hud = get_parent().get_node("Ui/Hud")
+	hud.update_hearts(lives)
+
+	if lives == 1:
+		# Reiniciar posición
+		position = start_position
+	else:
+		GameStateManager.lose()

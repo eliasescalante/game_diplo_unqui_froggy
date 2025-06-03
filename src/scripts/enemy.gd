@@ -13,6 +13,7 @@ func _ready():
 	# guardo la posicion inicial y reproduzco la animacion del enemigo
 	start_position = position
 	$AnimatedSprite2D.play("idle")
+	$Area2D.body_entered.connect(_on_area_2d_area_entered)
 
 func _process(delta):
 	#para mover el enemigo en forma vertical
@@ -20,3 +21,7 @@ func _process(delta):
 	# Si se va fuera del área vertical, vuelve al inicio
 	if abs(position.y - start_position.y) > loop_height:
 		position.y = start_position.y
+
+func _on_area_2d_area_entered(body: Node) -> void:
+	if body.is_in_group("Player"):
+		body.take_damage()
