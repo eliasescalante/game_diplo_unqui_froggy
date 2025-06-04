@@ -24,6 +24,9 @@ AudioManager="*res://src/scenes/Audio_manager.tscn"
 
 window/size/viewport_width=288
 window/size/viewport_height=208
+window/size/window_width_override=1152
+window/size/window_height_override=832
+window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
 [global_group]
