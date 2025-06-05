@@ -17,6 +17,9 @@ func _ready():
 	$Area2D.body_entered.connect(_on_area_2d_area_entered)
 
 func _process(delta):
+	enemy_move(delta)
+
+func enemy_move(delta):
 	#para mover el enemigo en forma vertical
 	position.y += speed * direction * delta
 	# Si se va fuera del área vertical, vuelve al inicio

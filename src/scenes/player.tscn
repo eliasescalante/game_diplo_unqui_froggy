@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,6 +111,6 @@ shape = SubResource("RectangleShape2D_4pcbe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5acq0")
-animation = &"idle"
-frame_progress = 0.667967
+animation = &"jump"
+frame_progress = 0.45582
 speed_scale = 0.5
