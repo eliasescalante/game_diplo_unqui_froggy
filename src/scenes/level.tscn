@@ -117,5 +117,8 @@ loop_height = 208.0
 [node name="House" parent="." instance=ExtResource("4_ikp8s")]
 position = Vector2(280, 24)
 
+[node name="House2" parent="." instance=ExtResource("4_ikp8s")]
+position = Vector2(280, 183)
+
 [node name="Player" parent="." instance=ExtResource("3_w1iog")]
-position = Vector2(9, 199)
+position = Vector2(278, 159)

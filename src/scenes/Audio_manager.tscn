@@ -8,7 +8,9 @@
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="golpe" type="AudioStreamPlayer" parent="SFX"]
+process_mode = 3
 stream = ExtResource("2_dilx0")
+autoplay = true
 
 [node name="Fondo" type="Node2D" parent="."]
 
